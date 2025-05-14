@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Modern Photo Editor</title>
+<script src="https://docs.opencv.org/4.5.5/opencv.js" onload="cvLoaded()"></script>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">PIXL/ART</div>
+        <ul class="nav-links">
+            <li><a href="C:\Users\ASUS\Documents\Web-Clint\Shape&Color\index.html">Shape & Color Detections</a></li>
+            <li><a href="C:\Users\ASUS\Documents\Web-Clint\Image Convolution\index.html">Image Convolution</a></li>
+            <li><a href="C:\Users\ASUS\Documents\Web-Clint\Image Analysis\index.html">Image Analysis</a></li>
+        </ul>
+    </nav>
+
+<div class="container">
+    <h1>PIXL/ART</h1>
+    <div class="editor">
+    <div class="image-section">
+        <div class="image-box">
+        <h4>Original Image</h4>
+        <img id="original-image" alt="Original" />
+        </div>
+        <div class="image-box">
+        <h4>Processed Image</h4>
+        <canvas id="canvas"></canvas>
+        </div>
+    </div>
+    <input type="file" id="upload" accept="image/*" />
+    </div>
+</div>
+
+
+<div class="second-container">
+    <div class="second-controls"> 
+        <button id="apply-grayscale">🖤 Grayscale</button>
+        <button id="apply-binary">⚫⚪ Binary</button>
+
+        <select id="filter-mode">
+            <option value="none" selected>No Filter</option>
+            <option value="Neonlow">Neon Glow</option>
+            <option value="BokehEffect ">Bokeh Effect</option>
+            <option value="Cartoonify">Cartoonify</option>
+            <option value="Pixelate">Pixelate</option>
+            <option value="Duotone">Duotone </option>
+            <option value="GlitchEffect">GlitchEffect</option>
+            <option value="RainbowOverlay">Rainbow Overlay</option>
+            <option value="WarmVintage">Warm Vintage</option>
+            <option value="3DEffect">3D Effect</option>
+            <option value="VHSDistortion">VHS Distortion</option>
+        </select>
+
+        <button id="apply-filter">🎨 Apply Filter</button>
+        <button id="save">💾 Save</button>
+        <button id="apply-adaptive-binarization">🖼️ Adaptive Binarization</button>
+    </div>
+</div>
+
+<div class="controls">
+    <label>Red: <input type="range" id="redRange" min="0" max="200" value="100"></label>
+    <label>Green: <input type="range" id="greenRange" min="0" max="200" value="100"></label>
+    <label>Blue: <input type="range" id="blueRange" min="0" max="200" value="100"></label>
+    <label><input type="checkbox" id="applyFilter"> Apply Filter</label>
+</div>
+<div class="controlsenhance">
+    <label>Opacity: <input type="range" id="opacity" min="0.1" max="1" step="0.1" value="1"></label>
+    <label>Brightness: <input type="range" id="brightness" min="50" max="200" step="10" value="100"></label>
+    <label>Contrast: <input type="range" id="contrast" min="50" max="200" step="10" value="100"></label>
+    <label>Saturation: <input type="range" id="saturation" min="0" max="200" step="10" value="100"></label>
+    <label>Blur: <input type="range" id="blur" min="0" max="10" step="1" value="0"></label>
+    <label><input type="checkbox" id="Filter"> Apply Filter</label>
+</div>
+<div class="controlsThreshold">
+    <input type="range" id="thresholdSlider" min="0" max="255" value="128">
+    <label for="thresholdSlider">Threshold: <span id="thresholdValue">128</span></label>
+    <label><input type="checkbox" id="apply-threshold"> Apply Filter</label>
+</div>
+<div class="controlrest">
+    <button id="reset-controls">🔄 Reset Settings</button>
+    </div>
+
+<script src="script.js"></script>
+</body>
+</html>
